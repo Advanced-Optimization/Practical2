@@ -1,0 +1,59 @@
+\documentclass[varwidth, border=1pt]{standalone}
+
+%\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{bm}
+
+\begin{document}
+
+\begin{minipage}{0.95\linewidth}
+\hrule
+\vspace{0.3em}
+{\bfseries Algorithm 2} Kinematics of the parallel continuum robot computation $f(\bm{u}_a)=\bm{y}_e$
+\vspace{0.3em}
+\hrule
+\vspace{0.5em}
+\begin{algorithmic}[1]
+
+  \State{Initialize $\bm{q}^{0} = [\bm{q}_1^{0};\, \bm{q}_2^{0};\, \bm{q}_3^{0};\, \bm{q}_4^{0}]$}
+\For{$i=1, \ldots, \mathrm{maxiter}$}
+\State{Form the residual:}\Comment{simulate states and gradients}
+    \[
+    \left\{
+    \begin{aligned}
+   \bm{b}_1 \leftarrow \bm{F}_1(\bm{q}_1^{i-1}) &+ \bm{M}_1 \bm{g} \\
+    &\vdots \\
+   \bm{b}_4 \leftarrow \bm{F}_4(\bm{q}_4^{i-1}) &+ \bm{M}_4 \bm{g} 
+    \end{aligned}
+    \right.
+    %\tag{14}
+    \]
+
+    \State{Compute $\bm{A}_j(\bm{q}_j^{i-1})$ and $\bm{H}_j$ ($j \in [1,4]$) to form $\bm{A}$, and $\bm{H}_a, \delta_a(\bm{q}^{i-1})$}
+    \State{Find $d\bm{q}$:}
+    \Comment{QP solve}
+    \[
+    \left\{
+    \begin{aligned}
+      \bm{A}\, d\bm{q} &= \bm{b} + \bm{H}_e^\top \bm{\lambda}_e + \bm{H}_a^{T}\bm{\lambda}_a \\
+    \bm{\delta}_a(\bm{q}^{i-1}) + \bm{H}_a\, d\bm{q} &= \bm{u}_a
+    \end{aligned}
+    \right.
+    %\tag{15}
+    \]
+    \State{$\bm{q}^{i} \leftarrow \bm{q}^{i-1} + \alpha d\bm{q}$\Comment{take solver step}}
+    \If{$\lVert \bm{q}^{i} - \bm{q}^{i-1} \rVert < \epsilon$}
+    \State{\Return{$\bm{y}_e = \bm{\delta}_e(\bm{q}^{i-1})$\Comment{solver converged}}}
+    \EndIf{}
+\EndFor%
+
+\end{algorithmic}
+\vspace{0.3em}
+\hrule
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[varwidth, border=1pt]{standalone}
+
+%\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{bm}
+
+\begin{document}
+
+\begin{minipage}{0.95\linewidth}
+\hrule
+\vspace{0.3em}
+{\bfseries Algorithm 1} Statics of one continuum leg
+\vspace{0.3em}
+\hrule
+\vspace{0.5em}
+
+\begin{algorithmic}[1]
+
+\State{Initialize $\bm{q}^{0}$}
+\For{$i=1, \ldots, \mathrm{maxiter}$}
+    \State{Form the residual:}\Comment{simulate states and gradients}
+    \[
+    \bm{b} \leftarrow \bm{F}(\bm{q}^{i-1}) + \bm{M}\bm{g}
+    \tag{3}
+    \]
+
+    \State{Compute $\bm{A}(\bm{q}^{i-1}) = \frac{\partial \bm{F}(\bm{q}^{i-1})}{\partial \bm{q}}$}
+    \State{Find $d\bm{q}$:}
+    \Comment{Newton solve}
+    \[
+    \bm{A}\, d\bm{q} = \bm{b}
+    \tag{5}
+    \]
+
+    \State{$\bm{q}^{i} \leftarrow \bm{q}^{i-1} + \alpha d\bm{q}$}\Comment{take solver step}
+
+    \If{$\lVert \bm{q}^{i} - \bm{q}^{i-1} \rVert < \epsilon$}
+    \State{\Return{$\bm{q}^{i}$}\Comment{solver converged}}
+    \EndIf{}
+
+\EndFor%
+\end{algorithmic}
+\vspace{0.3em}
+\hrule
+\end{minipage}
+
+\end{document}
