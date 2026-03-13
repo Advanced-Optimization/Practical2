@@ -1,21 +1,25 @@
 :::::: collapse Experimental Evaluation
 
 In this section observe the behavior of our algorithm using the *white legs* setup of Emio, in simulation and on the real robot.
+We will compare the performance for different models and finally discuss the difference between this approach and the learned approach
+from the first practical. 
 
 ::::: exercise
 
-**Exercise 6**
+**Exercise 6 (optional)**
 
-Run the simulation using the button below and ensure that the robot behaves as expected. 
+:::: select exo3model
+::: option beam
+::: option cosserat
+::: option tetra
+::::
 
-#runsofa-button("assets/labs/lab_inversekinematics/lab_inversekinematics.py" "--legsName" "whiteleg" "--legsModel" "exo3model" "--legsPositionOnMotor" "counterclockwisedown" "clockwisedown" "counterclockwisedown" "clockwisedown" "--centerPartName" "bluepart")
+Run the simulation using the button below, choosing different models from the dropdown menu above. 
+Ensure that the robot behaves as expected. 
 
-- Can you bring the robot in an unstable position? Take a screenshot and describe what you are seeing in your report. 
-- Can you find a configuration where, for given motor commands, there are two possible robot positions? Take screenshots of these two situations to put in your report.  
+#runsofa-button("assets/labs/Practical2/lab_inversekinematics.py" "--legsName" "whiteleg" "--legsModel" "exo3model" "--legsPositionOnMotor" "counterclockwisedown" "clockwisedown" "counterclockwisedown" "clockwisedown" "--centerPartName" "bluepart")
 
-::::: 
-
-Finally, we are ready to run the algorithm on the real robot! 
+Finally, we are ready to run the algorithm on the real robot! Follow the instructions below to setup the robots with the *white legs*.
 
 ::: collapse  Set up Emio 
 
@@ -27,13 +31,9 @@ one <span style="color:green">*green marker*</span> on the top of the connector.
 ![](assets/data/images/lab2-exercice3-emio.png){width=75% .center}
 :::
 
-::::: exercise
+Connect the simulation to the real robot and look at the error, i.e. the difference between the two green and red spheres (you can also use the *Plotting* tab).
 
-**Exercise 7**
-
-Connect the simulation to the real robot and look at the error, i.e. the difference
-between the two green and red spheres (you can also use the *Plotting* tab).
-- Comment on the error as you move the robot to different positions. Can you discern any trends? 
+- What differences do you observe between the models? 
 - Compare this model-based approach with the learned approach that we used in the last practical. Identify some advantages and disadvantages for each. 
 
 ::::: 

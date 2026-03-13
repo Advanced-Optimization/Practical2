@@ -53,7 +53,7 @@ In the next exercise, we will implement the above algorithm using Python.
 **Exercise 5**
 
 Solve the inverse kinematics problem using an off-the-shelve QP solver.
-Open the file `myQP_lab_inversekinematics.py` by clicking the *open* button below, and fill in the missing lines, step by step; solving first Exercise 3.1, then Exercise 3.2, and finally Exercise 3.3. The matrices $\bm{W}$ and vectors $d\bm{q}^{\mathrm{free}}$, $\bm{\delta}(\bm{q}^{i-1})$ are provided by the simulator *SOFA*. 
+Open the file `myQP_lab_inversekinematics.py` by clicking the *open* button below, and fill in the missing lines, step by step; solving first Exercise i), then Exercise ii), and finally Exercise iii) (they can be found in the code comments). The matrices $\bm{W}$ and vectors $d\bm{q}^{\mathrm{free}}$, $\bm{\delta}(\bm{q}^{i-1})$ are provided by the simulator *SOFA*. 
 
 #open-button("assets/labs/Practical2/myQP_lab_inversekinematics.py")
 
@@ -64,7 +64,7 @@ you change the file `myQP_lab_inversekinematics.py`, you will need to close and 
 
 Comment on the following questions: 
 
-a) Comment on the behavior you observe after each subtask (i., ii., and iii.), answering in particular any questions asked in the code comments. 
+a) Comment on the behavior you observe after each subtask i), ii), and iii), answering in particular any questions asked in the code comments. 
 
 b) What would happen if you were using a different scheme than SQP here, for example an augmented Lagrangian method? Would that be an appropriate method, in your opinion? 
 

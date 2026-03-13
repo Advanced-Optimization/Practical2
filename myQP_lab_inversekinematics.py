@@ -67,7 +67,7 @@ def getTorques(W, dq_free, iE, iA, q_s, q_t, q_e, q_a):
     
     # Question: reverse-engineer what the role of G, h, A, and b are and comment. 
 
-    # G = np.matrix([-Waa[0], Waa[1], -Waa[2], Waa[3]])
+    # G = np.matrix([-Waa[0, :], Waa[1, :], -Waa[2, :], Waa[3, :]])
     # h = np.array([1, 1, 1, 1]) + [da_free[0], -da_free[1], da_free[2], -da_free[3]]
 
     # A = np.array(Waa[[0], :])
@@ -98,8 +98,8 @@ def getTorques(W, dq_free, iE, iA, q_s, q_t, q_e, q_a):
             ############################
 
         except Exception as e:
-            # import Sofa
-            # Sofa.msg_error(os.path.basename(__file__), str(e))
+            import Sofa
+            Sofa.msg_error(os.path.basename(__file__), str(e))
             raise e
     return torques
 
