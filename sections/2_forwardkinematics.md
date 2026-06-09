@@ -11,8 +11,8 @@ $$
 \min_{\{\bm{q}_1, \cdots, \bm{q}_4\}} \sum_i & \mathcal{W}(\bm{q}_i) + \mathcal{W}_\mathrm{pot}(\bm{q}_i)\\
 \text{s.t.}\,\,
 \bm{\delta}_1(\bm{q}_1) &= \bm{\delta}_2(\bm{q}_2) \\
-\bm{\delta}_2(\bm{q}_2) &= \bm{\delta}_3(\bm{q}_3) \\
-\bm{\delta}_3(\bm{q}_3) &= \bm{\delta}_4(\bm{q}_4) \\
+\bm{\delta}_1(\bm{q}_2) &= \bm{\delta}_3(\bm{q}_3) \\
+\bm{\delta}_1(\bm{q}_3) &= \bm{\delta}_4(\bm{q}_4) \\
 \bm{\delta}_a(\bm{q}) &= \bm{u}_a
 \end{aligned}
 $$  

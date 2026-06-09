@@ -7,11 +7,12 @@ Additionally, we assume that the robot moves slowly enough that kinetic energy c
 We suppose that the vector $\mathbf{q}$ represents the parameters of the motion. Depending on the model that we will use, it will consist of the motion of the nodes in FEM, or of strains for Cosserat models. The potential energy of the deformation of the structure will be denoted by $\mathcal{W}(\mathbf{q})$. 
 The internal forces $\mathbf{F}(\mathbf{q}) = \frac{\partial \mathcal{W}(\mathbf{q})}{\partial \mathbf{q} }$ are obtained by the derivative of this deformation potential energy.
 
-The configuration of the robot, given by $\mathbf{q}$, is obtained by solving for the minimum-energy configuration of the robot. This configuration corresponds to the static equilibrium between these internal forces  $\mathbf{F}(\mathbf{q})$, gravity, and eventual external loads $\mathbf{F}_{ext}$, which we ignore here. 
-
+The configuration of the robot, given by $\mathbf{q}$, is obtained by solving for the minimum-energy configuration of the robot. This configuration corresponds to the static equilibrium between these internal forces  $\mathbf{F}(\mathbf{q})$, gravity, and eventual external loads $\mathbf{F}_{ext}$, which we ignore in the remainder of this practical:
 $$
 \mathbf{F}(\mathbf{q}) + \mathbf{M}\mathbf{g} + \mathbf{F}_{ext} = \mathbf{0}
 $$
+
+We can use the following algorithm to find the static configuration $\widehat{\mathbf{q}}$.
 
 ![](assets/labs/Practical2/latex/algorithm1.svg){width=85%, .center}
 
@@ -26,7 +27,7 @@ To model the various legs and their deformations, different models of internal f
 - a Cosserat rod model, computed in local coordinates (strain space)
 - a volume FEM with corotational linear tetrahedral elements
 
-If you want to learn more about the physics behind each model, you can take a look at the last section of this practical (_Beam Models_). To continue our development, all we need to know is that we have a way to compute $F(q)$ and $A := \frac{\partial F(q)}{\partial q}$.
+If you want to learn more about the physics behind each model, you can take a look at the last section of this practical _(Beam Models)_. To continue our development, all we need to know is that we have a way to compute $\mathbf{F}(\mathbf{q})$ and $\mathbf{A}(\mathbf{q}) := \frac{\partial \mathbf{F}(\mathbf{q})}{\partial \mathbf{q}}$.
 
 ## Hands-on
 

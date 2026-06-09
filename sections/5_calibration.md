@@ -2,7 +2,7 @@
 
 We will start by making sure our camera calibration is accurate. The stereo camera on the Emio robot allows us to compare what the robot is actually doing in the real world, with what our simulation thinks it's doing.    
 
-Interestingly, the standard way to solve the calibration problem is to set it up as an optimization problem! The variables can be, for example, the camera's extrinsic (the pose w.r.t. a fixed frame) and intrinsic (the focal length, baseline, central points, etc.) parameters. 
+Interestingly, the standard way to solve the calibration problem is via an optimization problem! The variables can be, for example, the camera's extrinsic parameters (its location) and intrinsic parameters (its focal length, baseline, central points, etc.). 
 
 For Emio, we assume that the camera's intrinsics are calibrated already. The calibration task is to find the extrinsic parameters, i.e., the stereo camera's position and orientation (a.k.a. pose) with respect to a fixed frame. A common way to represent orientations is by using the rotation matrix $R\in\mathrm{SO}(d)$, which is an orthogonal matrix that satisfies $R^\top R=I$ and $\mathrm{det}(R)=1$. 
 The extrinsics allow us to get the coordinates of known points (in fixed frame, such as the calibration dots), in the coordinates of the camera frame, as follows: 
@@ -20,7 +20,7 @@ Camera calibration consists of finding the parameters $\theta$ and $R, t$, so th
 ::: exercise
 **Exercise 1:**
 
-Assuming you are given a dataset $\{(p_i, p_i^f)\}_{i=1}^N$ of points in camera frame and their corresponding points in fixed frame. Can you formulate the optimization problem to find the unknown parameters based on this dataset? Write down the optimization problem and discuss the following points: 
+Assuming you are given a dataset $\{(p_i, p_i^f)\}_{i=1}^n$ of points in camera frame and their corresponding points in fixed frame. Can you formulate the optimization problem to find the unknown parameters based on this dataset? Write down the optimization problem and discuss the following points: 
 - Is the optimization problem convex? 
 - Is the optimization problem constrained or unconstrained? 
 - What kind of solver would you choose to solve it?  
